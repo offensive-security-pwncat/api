@@ -27,7 +27,7 @@ app.post('/api/v0/saveMessage', async (req, res) => {
 });
 
 // Iniciar el servidor en el puerto 3001 (puedes cambiar el puerto si es necesario)
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 443;
 app.listen(PORT, () => {
   console.log(`Backend server running on port ${PORT}`);
 });
