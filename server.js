@@ -34,6 +34,31 @@ const pool = new Pool({
   },
 });
 
+async function createMessagesTable() {
+  try {
+    const createTableQuery = `
+      CREATE TABLE IF NOT EXISTS messages (
+        id SERIAL PRIMARY KEY,
+        full_name VARCHAR(100) NOT NULL,
+        email VARCHAR(100) NOT NULL,
+        description TEXT
+      )
+    `;
+
+    const client = await pool.connect();
+    await client.query(createTableQuery);
+    client.release();
+    console.log('Tabla "Messages" creada exitosamente o ya existente');
+  } catch (error) {
+    console.error('Error al crear la tabla "Messages":', error);
+  }
+}
+
+// Llamada a la función para crear la tabla
+createMessagesTable();
+
+// API version 0
+
 // Ruta para guardar un mensaje con validación de email
 app.post('/api/v0/saveMessage', async (req, res) => {
   try {
