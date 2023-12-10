@@ -15,6 +15,7 @@ app.use(cors({
       'https://www.pwncat.com',
       'https://es.pwncat.com',
       'https://en.pwncat.com',
+      'https://dev.pwncat.com',
       // Agrega más subdominios si es necesario
     ];
 
